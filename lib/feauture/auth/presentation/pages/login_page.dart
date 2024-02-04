@@ -6,12 +6,7 @@ import 'package:alumni/core/theme/a_fonts.dart';
 import 'package:alumni/core/widget/custom_snack_bar.dart';
 import 'package:alumni/core/widget/custom_text_form_field.dart';
 import 'package:alumni/feauture/auth/presentation/bloc/login_bloc/auth_bloc.dart';
-import 'package:alumni/feauture/auth/presentation/pages/password_change_page.dart';
-import 'package:alumni/feauture/auth/presentation/pages/password_recovery_page.dart';
-import 'package:alumni/feauture/auth/presentation/pages/sing_in_page.dart';
 import 'package:alumni/feauture/auth/presentation/widget/auth_background.dart';
-import 'package:alumni/feauture/home/presentaion/pages/home_page.dart';
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -117,8 +112,8 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(
-                    // bottom: MediaQuery.of(context).viewInsets.bottom
-                  ),
+                      // bottom: MediaQuery.of(context).viewInsets.bottom
+                      ),
                   child: SizedBox(
                     width: 300,
                     child: ValueListenableBuilder(

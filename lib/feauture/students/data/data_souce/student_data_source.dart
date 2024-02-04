@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:alumni/core/network/dio_setting.dart';
 import 'package:dio/dio.dart';
 

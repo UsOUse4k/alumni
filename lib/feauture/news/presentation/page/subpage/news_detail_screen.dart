@@ -1,11 +1,9 @@
 import 'package:alumni/app/navigation/route.gr.dart';
 import 'package:alumni/core/admin.dart';
-import 'package:alumni/core/theme/a_color.dart';
 import 'package:alumni/core/theme/a_fonts.dart';
 import 'package:alumni/core/widget/custom_back_button.dart';
 import 'package:alumni/feauture/news/domain/model/news_detail/news_detail_model.dart';
 import 'package:alumni/feauture/news/presentation/bloc/news_bloc/news_bloc.dart';
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';

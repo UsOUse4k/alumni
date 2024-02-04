@@ -1,8 +1,6 @@
-import 'package:alumni/feauture/news/presentation/widget/news_card.dart';
+import 'package:alumni/core/theme/a_color.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-
-import '../../../../core/theme/a_color.dart';
 
 class NewsLoadingCard extends StatelessWidget {
   const NewsLoadingCard({Key? key}) : super(key: key);
@@ -68,7 +66,8 @@ class NewsLoadingCard extends StatelessWidget {
                                         height: 15,
                                         decoration: BoxDecoration(
                                           color: Colors.white,
-                                          borderRadius: BorderRadius.circular(12),
+                                          borderRadius:
+                                              BorderRadius.circular(12),
                                         ),
                                       ),
                                     ),
@@ -83,7 +82,8 @@ class NewsLoadingCard extends StatelessWidget {
                                         height: 20,
                                         decoration: BoxDecoration(
                                           color: Colors.white,
-                                          borderRadius: BorderRadius.circular(12),
+                                          borderRadius:
+                                              BorderRadius.circular(12),
                                         ),
                                       ),
                                     ),
@@ -98,7 +98,8 @@ class NewsLoadingCard extends StatelessWidget {
                                         height: 10,
                                         decoration: BoxDecoration(
                                           color: Colors.white,
-                                          borderRadius: BorderRadius.circular(12),
+                                          borderRadius:
+                                              BorderRadius.circular(12),
                                         ),
                                       ),
                                     ),
@@ -118,6 +119,5 @@ class NewsLoadingCard extends StatelessWidget {
         },
       ),
     );
-    ;
   }
 }

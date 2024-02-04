@@ -1,11 +1,8 @@
 import 'package:alumni/app/navigation/route.gr.dart';
-import 'package:alumni/feauture/auth/presentation/widget/password_change_success.dart';
-import 'package:auto_route/annotations.dart';
+import 'package:alumni/core/network/keys.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
-
-import '../../core/network/keys.dart';
 
 @AutoRouterConfig()
 class AppRouter extends $AppRouter {
@@ -43,8 +40,7 @@ class AuthGuard extends AutoRouteGuard {
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) async {
     const secureStorage = FlutterSecureStorage();
-    final String? accessToken =
-        await secureStorage.read(key: Keys.TOKEN);
+    final String? accessToken = await secureStorage.read(key: Keys.TOKEN);
     if (await secureStorage.containsKey(key: Keys.TOKEN) &&
         !JwtDecoder.isExpired(accessToken ?? '')) {
       resolver.next();

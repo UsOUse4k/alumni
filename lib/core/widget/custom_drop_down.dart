@@ -7,7 +7,12 @@ import '../theme/a_fonts.dart';
 
 class CustomDropDown<T> extends StatelessWidget {
   const CustomDropDown(
-      {Key? key, required this.onChanged, this.items, required this.hintText, required this.title, this.value})
+      {Key? key,
+      required this.onChanged,
+      this.items,
+      required this.hintText,
+      required this.title,
+      this.value})
       : super(key: key);
 
   final Function(T?) onChanged;
@@ -21,11 +26,11 @@ class CustomDropDown<T> extends StatelessWidget {
     return Column(
       children: [
         TextWithMark(
-          title: title ?? '',
+          title: title,
           isRequired: false,
         ),
         const SizedBox(
-          height: 3 ,
+          height: 3,
         ),
         SizedBox(
           height: 40,
@@ -33,9 +38,7 @@ class CustomDropDown<T> extends StatelessWidget {
               isExpanded: true,
               value: value,
               decoration: InputDecoration(
-                constraints: const BoxConstraints(
-                  minHeight: 40
-                ),
+                constraints: const BoxConstraints(minHeight: 40),
                 contentPadding: const EdgeInsets.symmetric(
                   horizontal: 5,
                 ),
@@ -66,10 +69,7 @@ class CustomDropDown<T> extends StatelessWidget {
                 ),
               ),
               buttonStyleData: const ButtonStyleData(
-                height: 30,
-                padding: EdgeInsets.only(top: 3)
-              ),
-
+                  height: 30, padding: EdgeInsets.only(top: 3)),
               menuItemStyleData: const MenuItemStyleData(
                 padding: EdgeInsets.symmetric(horizontal: 8),
               ),

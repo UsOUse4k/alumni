@@ -8,18 +8,16 @@ import 'package:alumni/core/widget/custom_snack_bar.dart';
 import 'package:alumni/core/widget/custom_text_form_field.dart';
 import 'package:alumni/core/widget/primary_button.dart';
 import 'package:alumni/feauture/news/domain/model/create_news/create_news.dart';
+import 'package:alumni/feauture/news/domain/model/news_detail/news_detail_model.dart'
+    as news_detail;
 import 'package:alumni/feauture/news/presentation/bloc/news_bloc/news_bloc.dart';
 import 'package:alumni/feauture/news/presentation/widget/create_new_image_card.dart';
 import 'package:alumni/feauture/news/presentation/widget/upload_image_card.dart';
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-
-import '../../../domain/model/news_detail/news_detail_model.dart'
-    as news_detail;
 
 @RoutePage()
 class UpdateNewsPage extends StatefulWidget {
@@ -61,7 +59,7 @@ class _UpdateNewsPageState extends State<UpdateNewsPage> {
     try {
       resultList = await _picker.pickMultiImage();
       if (resultList.isEmpty) return;
-    } on Exception catch (e) {}
+    } catch (_) {}
     if (!mounted) return;
 
     setState(() {

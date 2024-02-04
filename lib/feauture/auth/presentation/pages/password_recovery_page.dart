@@ -5,7 +5,6 @@ import 'package:alumni/core/widget/custom_snack_bar.dart';
 import 'package:alumni/core/widget/custom_text_form_field.dart';
 import 'package:alumni/feauture/auth/presentation/bloc/login_bloc/auth_bloc.dart';
 import 'package:alumni/feauture/auth/presentation/bloc/otp_bloc/otp_bloc.dart';
-import 'package:alumni/feauture/auth/presentation/widget/password_change_success.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

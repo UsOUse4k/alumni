@@ -1,9 +1,7 @@
-import 'dart:async';
-
 import 'package:alumni/feauture/students/domain/model/student/student_model.dart';
 import 'package:alumni/feauture/students/domain/repository/student_repository.dart';
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'student_event.dart';
 part 'student_state.dart';

@@ -1,11 +1,8 @@
-import 'dart:async';
-
 import 'package:alumni/feauture/profile/domain/model/profile_model.dart';
 import 'package:alumni/feauture/profile/domain/model/update_profile_model.dart';
-import 'package:bloc/bloc.dart';
+import 'package:alumni/feauture/profile/domain/repository/profile_repository.dart';
 import 'package:equatable/equatable.dart';
-
-import '../../../domain/repository/profile_repository.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'profile_event.dart';
 part 'profile_state.dart';
@@ -28,7 +25,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       try {
         await profileRepository.updateProfile(event.updateProfile);
         emit(const ProfileUpdateSuccess());
-      } catch (e,s) {
+      } catch (e, s) {
         print(e);
         print(s);
         emit(ProfileError());

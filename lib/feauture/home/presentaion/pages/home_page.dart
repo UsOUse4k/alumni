@@ -1,12 +1,10 @@
 import 'package:alumni/core/theme/a_color.dart';
 import 'package:alumni/feauture/donation/presentation/page/donation_page.dart';
 import 'package:alumni/feauture/news/presentation/page/news_page.dart';
-import 'package:alumni/feauture/profile/presentation/bloc/profile/profile_bloc.dart';
 import 'package:alumni/feauture/profile/presentation/page/profile_page.dart';
 import 'package:alumni/feauture/students/presentation/page/student_page.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 @RoutePage()
@@ -63,7 +61,7 @@ class _HomePageState extends State<HomePage> {
       )),
       bottomNavigationBar: ValueListenableBuilder(
         valueListenable: selectedIndex,
-        builder: (BuildContext context, value,_) {
+        builder: (BuildContext context, value, _) {
           return BottomNavigationBar(
             backgroundColor: PrimaryColor.s100,
             selectedItemColor: NeutralColor.white,

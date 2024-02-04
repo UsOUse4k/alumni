@@ -2,11 +2,9 @@ import 'package:alumni/app/navigation/route.dart';
 import 'package:alumni/core/theme/a_color.dart';
 import 'package:alumni/feauture/auth/presentation/bloc/login_bloc/auth_bloc.dart';
 import 'package:alumni/feauture/auth/presentation/bloc/otp_bloc/otp_bloc.dart';
-import 'package:alumni/feauture/auth/presentation/pages/login_page.dart';
 import 'package:alumni/feauture/news/presentation/bloc/news_bloc/news_bloc.dart';
 import 'package:alumni/feauture/profile/presentation/bloc/profile/profile_bloc.dart';
 import 'package:alumni/feauture/students/presentation/bloc/student_bloc/student_bloc.dart';
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -50,13 +48,9 @@ class _AlumniAppState extends State<AlumniApp> {
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
               scaffoldBackgroundColor: NeutralColor.white,
-
               useMaterial3: true,
               appBarTheme: const AppBarTheme(
-                  color: NeutralColor.white,
-                  centerTitle: true,
-                  elevation: 1
-              ),
+                  color: NeutralColor.white, centerTitle: true, elevation: 1),
               pageTransitionsTheme: const PageTransitionsTheme(
                 builders: {
                   TargetPlatform.android: CupertinoPageTransitionsBuilder(),

@@ -1,8 +1,6 @@
+import 'package:alumni/core/network/dio_setting.dart';
 import 'package:alumni/feauture/auth/domain/model/sing_in_model.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
-
-import '../../../../core/network/dio_setting.dart';
 
 class AuthDataSource {
   AuthDataSource({required this.dioSetting});
@@ -17,6 +15,7 @@ class AuthDataSource {
       },
     );
   }
+
   Future<Response> refreshToken(String token) {
     return dioSetting.dio.get(
       '/api/auth/login',

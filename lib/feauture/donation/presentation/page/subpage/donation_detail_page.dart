@@ -5,8 +5,6 @@ import 'package:alumni/feauture/donation/presentation/page/subpage/thanks_for_do
 import 'package:alumni/feauture/donation/presentation/widget/mbank_card.dart';
 import 'package:alumni/feauture/donation/presentation/widget/optima_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class DonationDetailPage extends StatefulWidget {
   const DonationDetailPage({Key? key}) : super(key: key);

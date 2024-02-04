@@ -1,9 +1,6 @@
-import 'package:alumni/core/theme/a_color.dart';
 import 'package:alumni/core/theme/a_fonts.dart';
 import 'package:alumni/core/utils/a_text.dart';
-import 'package:alumni/core/widget/primary_button.dart';
 import 'package:alumni/feauture/donation/presentation/page/subpage/donation_detail_page.dart';
-import 'package:alumni/feauture/donation/presentation/widget/donation_statistic_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

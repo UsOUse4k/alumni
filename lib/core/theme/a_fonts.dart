@@ -3,7 +3,6 @@ import 'package:alumni/core/theme/a_color.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 abstract class AFonts {
-
   static TextStyle h0i38 = const TextStyle(
     fontWeight: FontWeight.w700,
     fontSize: 38,

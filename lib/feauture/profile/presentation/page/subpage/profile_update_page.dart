@@ -10,10 +10,8 @@ import 'package:alumni/core/widget/primary_button.dart';
 import 'package:alumni/feauture/profile/domain/model/profile_model.dart';
 import 'package:alumni/feauture/profile/domain/model/update_profile_model.dart';
 import 'package:alumni/feauture/profile/presentation/bloc/profile/profile_bloc.dart';
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -79,8 +77,8 @@ class _ProfileUpdatePageState extends State<ProfileUpdatePage> {
     nameController = TextEditingController(text: widget.profileModel?.name);
     surnameController =
         TextEditingController(text: widget.profileModel?.surname);
-    graduateDataController =
-        TextEditingController(text: '${widget.profileModel?.yearOfRelease ?? ''}');
+    graduateDataController = TextEditingController(
+        text: '${widget.profileModel?.yearOfRelease ?? ''}');
     locationController =
         TextEditingController(text: widget.profileModel?.place);
     phoneNumberController =

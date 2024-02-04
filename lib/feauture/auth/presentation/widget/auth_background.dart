@@ -1,4 +1,3 @@
-import 'package:alumni/core/widget/custom_back_button.dart';
 import 'package:flutter/material.dart';
 
 class AuthBackground extends StatelessWidget {
@@ -15,11 +14,10 @@ class AuthBackground extends StatelessWidget {
           bottomRight: Radius.circular(20),
         ),
         image: DecorationImage(
-          image: AssetImage(
-            'assets/images/login.png',
-          ),
-          fit: BoxFit.cover
-        ),
+            image: AssetImage(
+              'assets/images/login.png',
+            ),
+            fit: BoxFit.cover),
       ),
     );
   }

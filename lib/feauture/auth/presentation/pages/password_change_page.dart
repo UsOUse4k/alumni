@@ -4,9 +4,6 @@ import 'package:alumni/core/theme/a_fonts.dart';
 import 'package:alumni/core/widget/custom_back_button.dart';
 import 'package:alumni/core/widget/custom_snack_bar.dart';
 import 'package:alumni/core/widget/custom_text_form_field.dart';
-import 'package:alumni/core/widget/primary_button.dart';
-import 'package:alumni/feauture/auth/presentation/pages/password_recovery_page.dart';
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 

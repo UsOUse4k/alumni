@@ -1,11 +1,9 @@
+import 'package:alumni/core/network/keys.dart';
 import 'package:alumni/feauture/auth/data/data_source/auth_data_source.dart';
-import 'package:alumni/feauture/auth/data/repository/auth_repository_impl.dart';
 import 'package:alumni/feauture/auth/data/source/remote/auth_api_data_source.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
-
-import 'keys.dart';
 
 class DioSetting {
   final Dio dio;
@@ -23,13 +21,14 @@ class DioSetting {
 
         if (accessToken != null && JwtDecoder.isExpired(accessToken ?? '')) {
           final token = await AuthApiDataSource(
-              AuthDataSource(
-                dioSetting: DioSetting(dio),
-              ),
+            AuthDataSource(
+              dioSetting: DioSetting(dio),
+            ),
           ).refreshToken(refreshToken ?? '');
 
           await secureStorage.write(key: Keys.TOKEN, value: token.accessToken);
-          await secureStorage.write(key: Keys.REFRESH_TOKEN, value: token.refreshToken);
+          await secureStorage.write(
+              key: Keys.REFRESH_TOKEN, value: token.refreshToken);
         }
         return handler.next(options);
       },

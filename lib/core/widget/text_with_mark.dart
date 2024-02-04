@@ -1,6 +1,5 @@
 import 'package:alumni/core/theme/a_color.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class TextWithMark extends StatelessWidget {
   const TextWithMark({

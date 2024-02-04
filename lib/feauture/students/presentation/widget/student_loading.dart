@@ -1,5 +1,4 @@
 import 'package:alumni/core/theme/a_color.dart';
-import 'package:alumni/feauture/students/presentation/widget/student_card.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -13,7 +12,7 @@ class StudentLoadingCard extends StatelessWidget {
         SliverList(
           delegate: SliverChildBuilderDelegate(
             childCount: 5,
-                (context, index) {
+            (context, index) {
               return Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 25,
@@ -23,7 +22,8 @@ class StudentLoadingCard extends StatelessWidget {
                   height: 70,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                      color: NeutralColor.white, borderRadius: BorderRadius.circular(12)),
+                      color: NeutralColor.white,
+                      borderRadius: BorderRadius.circular(12)),
                   child: Row(
                     children: [
                       Padding(
@@ -38,9 +38,8 @@ class StudentLoadingCard extends StatelessWidget {
                             width: 56,
                             height: 56,
                             decoration: const BoxDecoration(
-                              color: NeutralColor.white,
-                              shape: BoxShape.circle
-                            ),
+                                color: NeutralColor.white,
+                                shape: BoxShape.circle),
                           ),
                         ),
                       ),
@@ -55,9 +54,8 @@ class StudentLoadingCard extends StatelessWidget {
                               width: 150,
                               height: 20,
                               decoration: BoxDecoration(
-                                color: NeutralColor.white,
-                                borderRadius: BorderRadius.circular(12)
-                              ),
+                                  color: NeutralColor.white,
+                                  borderRadius: BorderRadius.circular(12)),
                             ),
                           ),
                           const SizedBox(
@@ -71,8 +69,7 @@ class StudentLoadingCard extends StatelessWidget {
                               height: 10,
                               decoration: BoxDecoration(
                                   color: NeutralColor.white,
-                                  borderRadius: BorderRadius.circular(12)
-                              ),
+                                  borderRadius: BorderRadius.circular(12)),
                             ),
                           )
                         ],

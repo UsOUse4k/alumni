@@ -2,7 +2,6 @@ import 'package:alumni/app/navigation/route.gr.dart';
 import 'package:alumni/core/network/keys.dart';
 import 'package:alumni/core/theme/a_color.dart';
 import 'package:alumni/core/theme/a_fonts.dart';
-import 'package:alumni/core/widget/primary_button.dart';
 import 'package:alumni/feauture/auth/presentation/bloc/login_bloc/auth_bloc.dart';
 import 'package:alumni/feauture/profile/domain/model/profile_model.dart';
 import 'package:alumni/feauture/profile/presentation/bloc/profile/profile_bloc.dart';
@@ -67,15 +66,12 @@ class _ProfilePageState extends State<ProfilePage>
                     title: LayoutBuilder(
                       builder: (context, constraints) {
                         return Container(
-                          decoration: const BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
+                          decoration: const BoxDecoration(boxShadow: [
+                            BoxShadow(
                                 color: NeutralColor.primary,
                                 blurRadius: 25,
-                                offset: Offset(2, 45)
-                              )
-                            ]
-                          ),
+                                offset: Offset(2, 45))
+                          ]),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.end,
@@ -120,7 +116,7 @@ class _ProfilePageState extends State<ProfilePage>
                     background: CachedNetworkImage(
                       imageUrl: profileModel?.avatar ?? '',
                       fit: BoxFit.cover,
-                      errorWidget: (context,_,__) => const Icon(Icons.error),
+                      errorWidget: (context, _, __) => const Icon(Icons.error),
                     ),
                   ),
                 ),

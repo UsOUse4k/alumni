@@ -1,11 +1,8 @@
-import 'dart:async';
-
 import 'package:alumni/feauture/auth/domain/model/sing_in_model.dart';
 import 'package:alumni/feauture/auth/domain/model/token/token_model.dart';
-import 'package:bloc/bloc.dart';
+import 'package:alumni/feauture/auth/domain/repository/auth_repository.dart';
 import 'package:equatable/equatable.dart';
-
-import '../../../domain/repository/auth_repository.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
