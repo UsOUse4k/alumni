@@ -17,6 +17,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.2.0"
+  ansicolor:
+    dependency: transitive
+    description:
+      name: ansicolor
+      sha256: "8bf17a8ff6ea17499e40a2d2542c2f481cd7615760c6d34065cb22bfd22e6880"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.2"
   args:
     dependency: transitive
     description:
@@ -237,10 +245,10 @@ packages:
     dependency: "direct main"
     description:
       name: dio
-      sha256: "417e2a6f9d83ab396ec38ff4ea5da6c254da71e4db765ad737a42af6930140b7"
+      sha256: "49af28382aefc53562459104f64d16b9dfd1e8ef68c862d5af436cc8356ce5a8"
       url: "https://pub.dev"
     source: hosted
-    version: "5.3.3"
+    version: "5.4.1"
   dotted_border:
     dependency: "direct main"
     description:
@@ -480,6 +488,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.1"
+  group_button:
+    dependency: transitive
+    description:
+      name: group_button
+      sha256: "0610fcf28ed122bfb4b410fce161a390f7f2531d55d1d65c5375982001415940"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.3.4"
   http:
     dependency: transitive
     description:
@@ -824,6 +840,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.3"
+  qr:
+    dependency: transitive
+    description:
+      name: qr
+      sha256: "64957a3930367bf97cc211a5af99551d630f2f4625e38af10edd6b19131b64b3"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.1"
+  qr_flutter:
+    dependency: "direct main"
+    description:
+      name: qr_flutter
+      sha256: "5095f0fc6e3f71d08adef8feccc8cea4f12eec18a2e31c2e8d82cb6019f4b097"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.1.0"
   quickalert:
     dependency: "direct main"
     description:
@@ -840,6 +872,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.27.7"
+  share_plus:
+    dependency: transitive
+    description:
+      name: share_plus
+      sha256: "3ef39599b00059db0990ca2e30fca0a29d8b37aae924d60063f8e0184cf20900"
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.2.2"
+  share_plus_platform_interface:
+    dependency: transitive
+    description:
+      name: share_plus_platform_interface
+      sha256: df08bc3a07d01f5ea47b45d03ffcba1fa9cd5370fb44b3f38c70e42cced0f956
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.3.1"
   shelf:
     dependency: transitive
     description:
@@ -973,6 +1021,46 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.0"
+  talker:
+    dependency: transitive
+    description:
+      name: talker
+      sha256: "496e5592ea443c57797fdeb690beb0de08d50ff7ef0217c7ca1ef40b1815bba9"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.2"
+  talker_bloc_logger:
+    dependency: "direct main"
+    description:
+      name: talker_bloc_logger
+      sha256: "1ce3fac825f04ad22220f2a7417840f58432e9520645a7b23ca3ac806d7ff737"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.2"
+  talker_dio_logger:
+    dependency: "direct main"
+    description:
+      name: talker_dio_logger
+      sha256: c83011d663bd6ef8641667445d0069463a17458343c6be4e42113f00fbd6a307
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.2"
+  talker_flutter:
+    dependency: "direct main"
+    description:
+      name: talker_flutter
+      sha256: dabc7005943dd8e15d05a238bca18d1fd0fc4b87a2601d9d600c2af798c1be71
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.2"
+  talker_logger:
+    dependency: transitive
+    description:
+      name: talker_logger
+      sha256: "4ed4e684fa3841f4c6abafe90e00b94539f23441197c482c92ddf5fa7c8a3e20"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.2"
   term_glyph:
     dependency: transitive
     description:

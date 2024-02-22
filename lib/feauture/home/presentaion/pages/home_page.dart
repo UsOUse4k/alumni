@@ -3,6 +3,7 @@ import 'package:alumni/feauture/donation/presentation/page/donation_page.dart';
 import 'package:alumni/feauture/news/presentation/page/news_page.dart';
 import 'package:alumni/feauture/profile/presentation/page/profile_page.dart';
 import 'package:alumni/feauture/students/presentation/page/student_page.dart';
+import 'package:alumni/feauture/vacancy/presentation/page/vacancy_page.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -31,6 +32,7 @@ class _HomePageState extends State<HomePage> {
   List<Widget> pages = [
     const NewsPage(),
     const StudentPage(),
+    const VacancyPage(),
     const DonationPage(),
     const ProfilePage()
   ];
@@ -119,7 +121,7 @@ class _HomePageState extends State<HomePage> {
                   icon: Column(
                     children: [
                       SvgPicture.asset(
-                        'assets/images/donation.svg',
+                        'assets/images/vacation.svg',
                       ),
                       const SizedBox(
                         height: 10,
@@ -129,6 +131,27 @@ class _HomePageState extends State<HomePage> {
                         height: 2,
                         decoration: BoxDecoration(
                             color: selectedIndex.value == 2
+                                ? NeutralColor.white
+                                : Colors.transparent,
+                            borderRadius: BorderRadius.circular(12)),
+                      )
+                    ],
+                  ),
+                  label: 'Vacation'),
+              BottomNavigationBarItem(
+                  icon: Column(
+                    children: [
+                      SvgPicture.asset(
+                        'assets/images/donation.svg',
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        width: 6,
+                        height: 2,
+                        decoration: BoxDecoration(
+                            color: selectedIndex.value == 3
                                 ? NeutralColor.white
                                 : Colors.transparent,
                             borderRadius: BorderRadius.circular(12)),
@@ -149,7 +172,7 @@ class _HomePageState extends State<HomePage> {
                         width: 6,
                         height: 2,
                         decoration: BoxDecoration(
-                            color: selectedIndex.value == 3
+                            color: selectedIndex.value == 4
                                 ? NeutralColor.white
                                 : Colors.transparent,
                             borderRadius: BorderRadius.circular(12)),

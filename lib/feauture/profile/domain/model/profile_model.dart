@@ -21,26 +21,27 @@ class ProfileModel {
   String? avatar;
   String? createdAt;
 
-  ProfileModel(
-      {this.id,
-        this.email,
-        this.name,
-        this.surname,
-        this.isAdmin,
-        this.education,
-        this.specialty,
-        this.yearOfRelease,
-        this.place,
-        this.phoneNumber,
-        this.workPlace,
-        this.positionAtWork,
-        this.shortBiography,
-        this.educationAndGoals,
-        this.avatar,
-        this.createdAt,
-      });
+  ProfileModel({
+    this.id,
+    this.email,
+    this.name,
+    this.surname,
+    this.isAdmin,
+    this.education,
+    this.specialty,
+    this.yearOfRelease,
+    this.place,
+    this.phoneNumber,
+    this.workPlace,
+    this.positionAtWork,
+    this.shortBiography,
+    this.educationAndGoals,
+    this.avatar,
+    this.createdAt,
+  });
 
-  factory ProfileModel.fromJson(Map<String, dynamic> json) => _$ProfileModelFromJson(json);
+  factory ProfileModel.fromJson(Map<String, dynamic> json) =>
+      _$ProfileModelFromJson(json);
 
-
+  Map<String, dynamic> toJson() => _$ProfileModelToJson(this);
 }

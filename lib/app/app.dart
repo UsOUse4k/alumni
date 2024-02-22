@@ -5,6 +5,7 @@ import 'package:alumni/feauture/auth/presentation/bloc/otp_bloc/otp_bloc.dart';
 import 'package:alumni/feauture/news/presentation/bloc/news_bloc/news_bloc.dart';
 import 'package:alumni/feauture/profile/presentation/bloc/profile/profile_bloc.dart';
 import 'package:alumni/feauture/students/presentation/bloc/student_bloc/student_bloc.dart';
+import 'package:alumni/feauture/vacancy/presentation/bloc/vacancy/vacancy_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -40,6 +41,9 @@ class _AlumniAppState extends State<AlumniApp> {
         BlocProvider<StudentBloc>(
           create: (context) => di<StudentBloc>(),
         ),
+        BlocProvider<VacancyBloc>(
+          create: (context) => di<VacancyBloc>(),
+        ),
       ],
       child: ScreenUtilInit(
         useInheritedMediaQuery: true,
@@ -47,7 +51,7 @@ class _AlumniAppState extends State<AlumniApp> {
           return MaterialApp.router(
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
-              scaffoldBackgroundColor: NeutralColor.white,
+              // scaffoldBackgroundColor: NeutralColor.white,
               useMaterial3: true,
               appBarTheme: const AppBarTheme(
                   color: NeutralColor.white, centerTitle: true, elevation: 1),

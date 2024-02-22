@@ -13,6 +13,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 @RoutePage()
 class ProfilePage extends StatefulWidget {
@@ -120,6 +121,26 @@ class _ProfilePageState extends State<ProfilePage>
                     ),
                   ),
                 ),
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      top: 20,
+                      bottom: 10,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        QrImageView(
+                          padding: EdgeInsets.zero,
+                          data:
+                              profileModel?.toJson().toString() ?? "Нет данных",
+                          version: QrVersions.auto,
+                          size: 200.0,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
                 SliverList(
                   delegate: SliverChildListDelegate(
                     [
@@ -180,7 +201,7 @@ class _ProfilePageState extends State<ProfilePage>
                       ),
                     ],
                   ),
-                )
+                ),
               ],
             );
           },

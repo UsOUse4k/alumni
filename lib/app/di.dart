@@ -14,8 +14,12 @@ import 'package:alumni/feauture/students/data/repository/student_repository_impl
 import 'package:alumni/feauture/students/data/source/remote/student_api_data_source.dart';
 import 'package:alumni/feauture/students/domain/repository/student_repository.dart';
 import 'package:alumni/feauture/students/presentation/bloc/student_bloc/student_bloc.dart';
+import 'package:alumni/feauture/vacancy/data/vacancy_repository_impl.dart';
+import 'package:alumni/feauture/vacancy/domain/vacancy_repository.dart';
+import 'package:alumni/feauture/vacancy/presentation/bloc/vacancy/vacancy_bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:talker_flutter/talker_flutter.dart';
 
 import '../feauture/auth/data/data_source/auth_data_source.dart';
 import '../feauture/auth/data/repository/auth_repository_impl.dart';
@@ -27,6 +31,8 @@ import '../core/network/dio_setting.dart';
 GetIt di = GetIt.instance;
 
 initLocatorService() async {
+  registerTalker();
+
   registerDio();
 
   registerDataSource();
@@ -38,11 +44,17 @@ initLocatorService() async {
   registerBloc();
 }
 
+registerTalker() {
+  final talker = TalkerFlutter.init();
+
+  di.registerLazySingleton(() => talker);
+}
+
 registerDio() async {
   di.registerLazySingleton(
-        () => Dio(
+    () => Dio(
       BaseOptions(
-        baseUrl: 'http://134.209.109.212:3000',
+        baseUrl: 'http://16.171.171.41',
       ),
     ),
   );
@@ -51,9 +63,11 @@ registerDio() async {
 
 registerDataSource() {
   di.registerLazySingleton(() => AuthDataSource(dioSetting: di<DioSetting>()));
-  di.registerLazySingleton(() => ProfileDataSource(dioSetting: di<DioSetting>()));
+  di.registerLazySingleton(
+      () => ProfileDataSource(dioSetting: di<DioSetting>()));
   di.registerLazySingleton(() => NewsDataSource(dioSetting: di<DioSetting>()));
-  di.registerLazySingleton(() => StudentDataSource(dioSetting: di<DioSetting>()));
+  di.registerLazySingleton(
+      () => StudentDataSource(dioSetting: di<DioSetting>()));
 }
 
 registerApiDataSource() {
@@ -65,14 +79,15 @@ registerApiDataSource() {
 
 registerRepository() {
   di.registerLazySingleton<AuthRepository>(
-          () => AuthRepositoryImpl(di<AuthApiDataSource>()));
+      () => AuthRepositoryImpl(di<AuthApiDataSource>()));
   di.registerLazySingleton<ProfileRepository>(
-          () => ProfileRepositoryImpl(di<ProfileApiDataSource>()));
+      () => ProfileRepositoryImpl(di<ProfileApiDataSource>()));
   di.registerLazySingleton<NewsRepository>(
-          () => NewsRepositoryImpl(di<NewsApiDataSource>()));
+      () => NewsRepositoryImpl(di<NewsApiDataSource>()));
   di.registerLazySingleton<StudentRepository>(
-          () => StudentRepositoryImpl(di<StudentApiDataSource>()));
-
+      () => StudentRepositoryImpl(di<StudentApiDataSource>()));
+  di.registerLazySingleton<VacancyRepository>(
+      () => VacancyRepositoryImpl(di<DioSetting>()));
 }
 
 registerBloc() {
@@ -81,7 +96,5 @@ registerBloc() {
   di.registerFactory(() => NewsBloc(di<NewsRepository>()));
   di.registerFactory(() => ProfileBloc(di<ProfileRepository>()));
   di.registerFactory(() => StudentBloc(di<StudentRepository>()));
+  di.registerFactory(() => VacancyBloc(di<VacancyRepository>()));
 }
-
-
-

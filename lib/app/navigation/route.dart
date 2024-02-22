@@ -30,9 +30,13 @@ class AppRouter extends $AppRouter {
         AutoRoute(page: UpdateNewsRoute.page, path: '/updateNews'),
         AutoRoute(page: ProfileRoute.page, path: '/profile'),
         AutoRoute(page: ProfileUpdateRoute.page, path: '/profileUpdate'),
-        AutoRoute(page: StudentFilterRoute.page, path: '/studentFilter'),
         AutoRoute(page: StudentRoute.page, path: '/students'),
+        AutoRoute(page: StudentFilterRoute.page, path: '/studentFilter'),
         AutoRoute(page: StudentDetailRoute.page, path: '/studentsDetail'),
+        AutoRoute(page: VacancyRoute.page, path: '/vacancy'),
+        AutoRoute(page: VacancyDetailRoute.page, path: '/vacancyDetail'),
+        AutoRoute(page: UpdateVacancyRoute.page, path: '/updateVacancy'),
+        AutoRoute(page: CreateVacancyRoute.page, path: '/createVacancy'),
       ];
 }
 
