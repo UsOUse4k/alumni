@@ -54,7 +54,7 @@ registerDio() async {
   di.registerLazySingleton(
     () => Dio(
       BaseOptions(
-        baseUrl: 'http://16.171.171.41',
+        baseUrl: 'http://217.29.26.52',
       ),
     ),
   );

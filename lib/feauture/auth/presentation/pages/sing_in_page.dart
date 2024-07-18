@@ -58,119 +58,154 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: BlocConsumer<AuthBloc, AuthState>(
-          listener: (context, state) {
-            if (state is SignInSuccess) {
-              context.router.replace(const SignInSuccessRoute());
-            } else if (state is AuthError) {
-              showErrorSnackBar(state.message, context);
-            }
-          },
-          builder: (context, state) {
-            if (state is AuthLoading) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-            return SingleChildScrollView(
-              child: Column(
-                children: [
-                  const Stack(
-                    children: [
-                      AuthBackground(),
-                      Positioned(
-                        left: 5,
-                        top: 25,
-                        child: CustomBackButton(),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    'Регистрация',
-                    style: AFonts.h1i28.copyWith(
-                      color: TextColor.s100,
+      body: BlocConsumer<AuthBloc, AuthState>(
+        listener: (context, state) {
+          if (state is SignInSuccess) {
+            context.router.replace(const SignInSuccessRoute());
+          } else if (state is AuthError) {
+            showErrorSnackBar(state.message, context);
+          }
+        },
+        builder: (context, state) {
+          if (state is AuthLoading) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          return SingleChildScrollView(
+            child: Column(
+              children: [
+                const Stack(
+                  children: [
+                    AuthBackground(),
+                    Positioned(
+                      left: 5,
+                      top: 25,
+                      child: CustomBackButton(),
                     ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  'Регистрация',
+                  style: AFonts.h1i28.copyWith(
+                    color: TextColor.s100,
                   ),
-                  const SizedBox(
-                    height: 20,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                SizedBox(
+                  width: 300,
+                  child: CustomTextFormField(
+                    hintText: 'имя',
+                    controller: usernameController,
+                    textInputType: TextInputType.name,
+                    textInputAction: TextInputAction.next,
+                    contentPadding: const EdgeInsets.only(left: 10),
+                    isFilled: true,
+                    borderRadius: 12,
                   ),
-                  SizedBox(
-                    width: 300,
-                    child: CustomTextFormField(
-                      hintText: 'имя',
-                      controller: usernameController,
-                      textInputType: TextInputType.name,
-                      textInputAction: TextInputAction.next,
-                      contentPadding: const EdgeInsets.only(left: 10),
-                      isFilled: true,
-                      borderRadius: 12,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  width: 300,
+                  child: CustomTextFormField(
+                    hintText: 'фамилия',
+                    textInputType: TextInputType.name,
+                    textInputAction: TextInputAction.next,
+                    controller: surnameController,
+                    contentPadding: const EdgeInsets.only(left: 10),
+                    isFilled: true,
+                    borderRadius: 12,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  width: 300,
+                  child: CustomTextFormField(
+                    hintText: 'e-mail',
+                    textInputType: TextInputType.emailAddress,
+                    textInputAction: TextInputAction.next,
+                    controller: emailController,
+                    contentPadding: const EdgeInsets.only(left: 10),
+                    isFilled: true,
+                    borderRadius: 12,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  width: 300,
+                  child: CustomTextFormField(
+                    hintText: 'телефон',
+                    textInputType: TextInputType.number,
+                    controller: phoneController,
+                    contentPadding: const EdgeInsets.only(left: 10),
+                    isFilled: true,
+                    borderRadius: 12,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  width: 300,
+                  child: ValueListenableBuilder(
+                    valueListenable: passwordVisible,
+                    builder: (BuildContext context, value, Widget? child) {
+                      return CustomTextFormField(
+                        hintText: 'пароль',
+                        controller: passwordController,
+                        textInputAction: TextInputAction.next,
+                        contentPadding: const EdgeInsets.only(left: 10),
+                        obscureText: value,
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            passwordVisible.value = !passwordVisible.value;
+                          },
+                          icon: Icon(
+                            value
+                                ? Icons.visibility_off_outlined
+                                : Icons.visibility,
+                            color: PrimaryColor.s200,
+                          ),
+                        ),
+                        isFilled: true,
+                        borderRadius: 12,
+                      );
+                    },
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  width: 300,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      bottom: MediaQuery.of(context).viewPadding.bottom,
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  SizedBox(
-                    width: 300,
-                    child: CustomTextFormField(
-                      hintText: 'фамилия',
-                      textInputType: TextInputType.name,
-                      textInputAction: TextInputAction.next,
-                      controller: surnameController,
-                      contentPadding: const EdgeInsets.only(left: 10),
-                      isFilled: true,
-                      borderRadius: 12,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  SizedBox(
-                    width: 300,
-                    child: CustomTextFormField(
-                      hintText: 'e-mail',
-                      textInputType: TextInputType.emailAddress,
-                      textInputAction: TextInputAction.next,
-                      controller: emailController,
-                      contentPadding: const EdgeInsets.only(left: 10),
-                      isFilled: true,
-                      borderRadius: 12,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  SizedBox(
-                    width: 300,
-                    child: CustomTextFormField(
-                      hintText: 'телефон',
-                      textInputType: TextInputType.number,
-                      controller: phoneController,
-                      contentPadding: const EdgeInsets.only(left: 10),
-                      isFilled: true,
-                      borderRadius: 12,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  SizedBox(
-                    width: 300,
                     child: ValueListenableBuilder(
-                      valueListenable: passwordVisible,
+                      valueListenable: passwordConfirmVisible,
                       builder: (BuildContext context, value, Widget? child) {
                         return CustomTextFormField(
-                          hintText: 'пароль',
-                          controller: passwordController,
+                          hintText: 'подтвердите пароль',
+                          controller: confirmPasswordController,
                           textInputAction: TextInputAction.next,
                           contentPadding: const EdgeInsets.only(left: 10),
                           obscureText: value,
                           suffixIcon: IconButton(
                             onPressed: () {
-                              passwordVisible.value = !passwordVisible.value;
+                              passwordConfirmVisible.value =
+                                  !passwordConfirmVisible.value;
                             },
                             icon: Icon(
                               value
@@ -185,157 +220,120 @@ class _SignInPageState extends State<SignInPage> {
                       },
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  SizedBox(
-                    width: 300,
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                        bottom: MediaQuery.of(context).viewPadding.bottom,
-                      ),
-                      child: ValueListenableBuilder(
-                        valueListenable: passwordConfirmVisible,
-                        builder: (BuildContext context, value, Widget? child) {
-                          return CustomTextFormField(
-                            hintText: 'подтвердите пароль',
-                            controller: confirmPasswordController,
-                            textInputAction: TextInputAction.next,
-                            contentPadding: const EdgeInsets.only(left: 10),
-                            obscureText: value,
-                            suffixIcon: IconButton(
-                              onPressed: () {
-                                passwordConfirmVisible.value =
-                                    !passwordConfirmVisible.value;
-                              },
-                              icon: Icon(
-                                value
-                                    ? Icons.visibility_off_outlined
-                                    : Icons.visibility,
-                                color: PrimaryColor.s200,
-                              ),
+                ),
+                ValueListenableBuilder(
+                  valueListenable: isAgreedPrivacy,
+                  builder: (BuildContext context, value, Widget? child) {
+                    return Padding(
+                      padding: const EdgeInsets.only(),
+                      child: CheckboxListTile(
+                        title: RichText(
+                          text: TextSpan(
+                            style: const TextStyle(
+                              color: NeutralColor.primary,
                             ),
-                            isFilled: true,
-                            borderRadius: 12,
-                          );
+                            children: [
+                              const TextSpan(text: 'Вы соглашаетесь '),
+                              TextSpan(
+                                text: 'Правилам пользования ',
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    _launchUrl(
+                                        'https://ru.wikipedia.org/wiki/Privacy');
+                                  },
+                                style: const TextStyle(
+                                  color: Colors.blue,
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ),
+                              const TextSpan(text: 'и '),
+                              TextSpan(
+                                text: 'Политекой конфиденциальности ',
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    _launchUrl(
+                                        'https://ru.wikipedia.org/wiki/Privacy');
+                                  },
+                                style: const TextStyle(
+                                  color: Colors.blue,
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ),
+                              const TextSpan(
+                                  text: 'тогда продолжаете регистрацию ')
+                            ],
+                          ),
+                        ),
+                        controlAffinity: ListTileControlAffinity.leading,
+                        visualDensity: const VisualDensity(
+                            vertical: VisualDensity.minimumDensity,
+                            horizontal: VisualDensity.minimumDensity),
+                        value: value,
+                        onChanged: (value) {
+                          isAgreedPrivacy.value = value;
                         },
                       ),
-                    ),
-                  ),
-                  ValueListenableBuilder(
-                    valueListenable: isAgreedPrivacy,
-                    builder: (BuildContext context, value, Widget? child) {
-                      return Padding(
-                        padding: const EdgeInsets.only(),
-                        child: CheckboxListTile(
-                          title: RichText(
-                            text: TextSpan(
-                              style: const TextStyle(
-                                color: NeutralColor.primary,
+                    );
+                  },
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                SizedBox(
+                  width: 300,
+                  height: 50,
+                  child: FilledButton(
+                    onPressed: () {
+                      if (phoneController.text.isEmpty &&
+                          emailController.text.isEmpty &&
+                          passwordController.text.isEmpty &&
+                          confirmPasswordController.text.isEmpty &&
+                          usernameController.text.isEmpty &&
+                          surnameController.text.isEmpty) {
+                        showErrorSnackBar('Заполните все поля', context);
+                      } else if (passwordController.text !=
+                          confirmPasswordController.text) {
+                        showErrorSnackBar('Пароли не совпадают', context);
+                      } else if (!(isAgreedPrivacy.value!)) {
+                        showErrorSnackBar(
+                            'Вы не можете зарегистрироватся если не согласитесь с нашими условиями',
+                            context);
+                      } else {
+                        context.read<AuthBloc>().add(
+                              SignInEvent(
+                                SignInModel(
+                                  telephone: phoneController.text,
+                                  email: emailController.text,
+                                  password: passwordController.text,
+                                  confirmPassword:
+                                      confirmPasswordController.text,
+                                  name: usernameController.text,
+                                  surname: surnameController.text,
+                                ),
                               ),
-                              children: [
-                                const TextSpan(text: 'Вы соглашаетесь '),
-                                TextSpan(
-                                  text: 'Правилам пользования ',
-                                  recognizer: TapGestureRecognizer()
-                                    ..onTap = () {
-                                      _launchUrl(
-                                          'https://ru.wikipedia.org/wiki/Privacy');
-                                    },
-                                  style: const TextStyle(
-                                    color: Colors.blue,
-                                    decoration: TextDecoration.underline,
-                                  ),
-                                ),
-                                const TextSpan(text: 'и '),
-                                TextSpan(
-                                  text: 'Политекой конфиденциальности ',
-                                  recognizer: TapGestureRecognizer()
-                                    ..onTap = () {
-                                      _launchUrl(
-                                          'https://ru.wikipedia.org/wiki/Privacy');
-                                    },
-                                  style: const TextStyle(
-                                    color: Colors.blue,
-                                    decoration: TextDecoration.underline,
-                                  ),
-                                ),
-                                const TextSpan(
-                                    text: 'тогда продолжаете регистрацию ')
-                              ],
-                            ),
-                          ),
-                          controlAffinity: ListTileControlAffinity.leading,
-                          visualDensity: const VisualDensity(
-                              vertical: VisualDensity.minimumDensity,
-                              horizontal: VisualDensity.minimumDensity),
-                          value: value,
-                          onChanged: (value) {
-                            isAgreedPrivacy.value = value;
-                          },
-                        ),
-                      );
+                            );
+                      }
                     },
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  SizedBox(
-                    width: 300,
-                    height: 50,
-                    child: FilledButton(
-                      onPressed: () {
-                        if (phoneController.text.isEmpty &&
-                            emailController.text.isEmpty &&
-                            passwordController.text.isEmpty &&
-                            confirmPasswordController.text.isEmpty &&
-                            usernameController.text.isEmpty &&
-                            surnameController.text.isEmpty) {
-                          showErrorSnackBar('Заполните все поля', context);
-                        } else if (passwordController.text !=
-                            confirmPasswordController.text) {
-                          showErrorSnackBar('Пароли не совпадают', context);
-                        } else if (!(isAgreedPrivacy.value!)) {
-                          showErrorSnackBar(
-                              'Вы не можете зарегистрироватся если не согласитесь с нашими условиями',
-                              context);
-                        } else {
-                          context.read<AuthBloc>().add(
-                                SignInEvent(
-                                  SignInModel(
-                                    telephone: phoneController.text,
-                                    email: emailController.text,
-                                    password: passwordController.text,
-                                    confirmPassword:
-                                        confirmPasswordController.text,
-                                    name: usernameController.text,
-                                    surname: surnameController.text,
-                                  ),
-                                ),
-                              );
-                        }
-                      },
-                      style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(PrimaryColor.s100),
-                          shape: MaterialStateProperty.all(
-                            RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15)),
-                          )),
-                      child: Text(
-                        'Зарегистрироваться',
-                        style: AFonts.h2i18.copyWith(color: NeutralColor.white),
-                      ),
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(PrimaryColor.s100),
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                        )),
+                    child: Text(
+                      'Зарегистрироваться',
+                      style: AFonts.h2i18.copyWith(color: NeutralColor.white),
                     ),
                   ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                ],
-              ),
-            );
-          },
-        ),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }
